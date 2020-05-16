@@ -25,7 +25,7 @@ $(document).ready(function () {
 
   function displayWeatherInfo(cityName) {
 
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=b0ccefda6d3674eada5d69e1041ccc24";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=b0ccefda6d3674eada5d69e1041ccc24";
 
     $("#today").empty();
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
       const mainWind = response.wind.speed;
       const mainHumid = response.main.humidity;
       const mainTemp = response.main.temp;
-      const mainImg = `http://openweathermap.org/img/w/${response.weather[0].icon}.png`;
+      const mainImg = `https://openweathermap.org/img/w/${response.weather[0].icon}.png`;
 
 
       //placing the top branches to the html
@@ -78,7 +78,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "GET",
-      url: "http://api.openweathermap.org/data/2.5/uvi?appid=b0ccefda6d3674eada5d69e1041ccc24&lat=" + lat + "&lon=" + lon
+      url: "https://api.openweathermap.org/data/2.5/uvi?appid=b0ccefda6d3674eada5d69e1041ccc24&lat=" + lat + "&lon=" + lon
     }).then(function (response) {
       const mainUV = response.value;
 
@@ -107,7 +107,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "GET",
-      url: "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=b0ccefda6d3674eada5d69e1041ccc24"
+      url: "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=b0ccefda6d3674eada5d69e1041ccc24"
     }).then(function (response) {
 
       console.log(response);
@@ -125,7 +125,7 @@ $(document).ready(function () {
 
         const title = $("<h5>").addClass("card-title").text(new Date(response.list[i].dt_txt).toLocaleDateString());
 
-        const img = $("<img>").attr("src", `http://openweathermap.org/img/w/${response.list[i].weather[0].icon}.png`);
+        const img = $("<img>").attr("src", `https://openweathermap.org/img/w/${response.list[i].weather[0].icon}.png`);
 
         const temp = $("<p>").addClass("card-text").text(`Temp: ${Math.round(response.list[i].main.temp_max - 273)} ` + "C");
 
